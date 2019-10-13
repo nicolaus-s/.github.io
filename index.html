@@ -8,31 +8,52 @@
       <!--Bar going across the top of the page-->
       <h1 id="maintitle">One line a day</h1>
       <!--Link to GitHub Profile-->
-      <a href="https://github.com/nicolaus-s"><p class="mainbody">Here is my GitHub Profile</a>
+      <a href="https://github.com/nicolaus-s"><p class="mainbody">Here is my GitHub Profile</a></p>
       <br>
       <br>
-      <p id="time" class="status"></p>
-      <br>
-      <br>
-      <p id="note" class="status"></p>
-      <br>
-      <br>
-        <!--Site blue print with title-->
-        <p class="mainbody">The rough layout of this site</p>
-        <br>
-        <img src="img\blueprint.png">
-      </p>
+      <div class="status">
+       <h3>Github.io Site</h3>
+       <p id="iotime"></p>
+       <p id="ionote"></p>
+     </div>
+           <!-- Uses the GitHub API to get the last commit data for nicolaus-s.github.io (io)-->
       <script>
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-            document.getElementById("time").innerHTML = "My last commit was at: " + myObj[0].commit.author.date;
-            document.getElementById("note").innerHTML = "My last commit comment was: " + myObj[0].commit.message;
+            document.getElementById("iotime").innerHTML = "Latest site commit time: " + myObj[0].commit.author.date;
+            document.getElementById("ionote").innerHTML = "Latest site commit comment: " + myObj[0].commit.message;
           }
         };
         xmlhttp.open("GET", "https://api.github.com/repos/nicolaus-s/nicolaus-s.github.io/commits", true);
         xmlhttp.send();
       </script>
+      <div class="status">
+       <h3>Triton Project</h3>
+       <p id="tritime"></p>
+       <p id="trinote"></p>
+     </div>
+           <!-- Uses the GitHub API to get the last commit data for Triton (tri) -->
+      <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            document.getElementById("tritime").innerHTML = "Latest site commit time: " + myObj[0].commit.author.date;
+            document.getElementById("trinote").innerHTML = "Latest site commit comment: " + myObj[0].commit.message;
+          }
+        };
+        xmlhttp.open("GET", "https://api.github.com/repos/nicolaus-s/Triton/commits", true);
+        xmlhttp.send();
+      </script>
+    <br>
+    <br>
+      <!--Site blue print with title-->
+      <p class="mainbody">The rough layout of this site
+      <br>
+      <img src="img\blueprint.png">
+      </p>
+
   </body>
 </html>
