@@ -16,3 +16,10 @@ body {
   font-weight: 700;
   font-family: sans-serif;
 }
+
+.status {
+  color: #cc33ff;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: sans-serif;
+}
