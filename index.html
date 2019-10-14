@@ -39,8 +39,8 @@
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-            document.getElementById("tritime").innerHTML = "Latest site commit time: " + myObj[0].commit.author.date;
-            document.getElementById("trinote").innerHTML = "Latest site commit comment: " + myObj[0].commit.message;
+            document.getElementById("tritime").innerHTML = "Latest Triton commit time: " + myObj[0].commit.author.date;
+            document.getElementById("trinote").innerHTML = "Latest Triton commit comment: " + myObj[0].commit.message;
           }
         };
         xmlhttp.open("GET", "https://api.github.com/repos/nicolaus-s/Triton/commits", true);
