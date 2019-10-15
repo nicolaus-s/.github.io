@@ -7,11 +7,10 @@
   <body>
       <!--Bar going across the top of the page-->
       <h1 id="maintitle">One line a day</h1>
-      <!--Link to GitHub Profile-->
-      <a href="https://github.com/nicolaus-s"><p class="mainbody">Here is my GitHub Profile</a></p>
       <br>
       <div class="status">
-       <h3>Github.io Site</h3>
+       <h3>nicolaus-s.github.io</h3>
+       <p id="rdesc">Scratch code only</p>
        <p id="iotime"></p>
        <p id="ionote"></p>
      </div>
@@ -21,30 +20,54 @@
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-            document.getElementById("iotime").innerHTML = "Latest site commit time: " + myObj[0].commit.author.date;
-            document.getElementById("ionote").innerHTML = "Latest site commit comment: " + myObj[0].commit.message;
+            document.getElementById("iotime").innerHTML = "Latest commit time: " + myObj[0].commit.author.date;
+            document.getElementById("ionote").innerHTML = "Latest commit comment: " + myObj[0].commit.message;
           }
         };
         xmlhttp.open("GET", "https://api.github.com/repos/nicolaus-s/nicolaus-s.github.io/commits", true);
         xmlhttp.send();
       </script>
       <div class="status">
+       <h3>KotlinGibberish</h3>
+       <p id="rdesc">Code from a Kotlin Tutorial I am following</p>
+       <p id="kottime"></p>
+       <p id="kotnote"></p>
+     </div>
+           <!-- Uses the GitHub API to get the last commit data for nicolaus-s.github.io (io)-->
+      <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            document.getElementById("kottime").innerHTML = "Latest commit time: " + myObj[0].commit.author.date;
+            document.getElementById("kotnote").innerHTML = "Latest commit comment: " + myObj[0].commit.message;
+          }
+        };
+        xmlhttp.open("GET", "https://api.github.com/repos/nicolaus-s/KotlinGibberish/commits", true);
+        xmlhttp.send();
+      </script>
+      <div class="status">
        <h3>Triton Project</h3>
+       <p id="rdesc">Repository to be used for a collaboration project with <a href="https://github.com/navevan">Evan</a></p>
        <p id="tritime"></p>
        <p id="trinote"></p>
      </div>
+     <br>
            <!-- Uses the GitHub API to get the last commit data for Triton (tri) -->
       <script>
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-            document.getElementById("tritime").innerHTML = "Latest Triton commit time: " + myObj[0].commit.author.date;
-            document.getElementById("trinote").innerHTML = "Latest Triton commit comment: " + myObj[0].commit.message;
+            document.getElementById("tritime").innerHTML = "Latest commit time: " + myObj[0].commit.author.date;
+            document.getElementById("trinote").innerHTML = "Latest commit comment: " + myObj[0].commit.message;
           }
         };
         xmlhttp.open("GET", "https://api.github.com/repos/nicolaus-s/Triton/commits", true);
         xmlhttp.send();
       </script>
+            <!--Link to GitHub Profile-->
+      <p class="mainbody">You can see my GitHub account <a href="https://github.com/nicolaus-s">here</a></p>
+      <br>
   </body>
 </html>
