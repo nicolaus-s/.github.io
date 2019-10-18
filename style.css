@@ -36,11 +36,7 @@ body {
 }
 
 a:link {
-  color: #999999;
-}
-
-a:active {
-  color: #ffffff;
+  color: #ffb52b;
 }
 
 a:visited {
